@@ -1,9 +1,9 @@
 FROM mhart/alpine-node:6
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache git py-pip ca-certificates
-RUN pip install youtube-dl==2017.05.29
-RUN ln -s /usr/bin/youtube-dl /usr/local/bin/youtube-dl
+    apk add --no-cache git ca-certificates curl
+RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+RUN chmod 755 /usr/local/bin/youtube-dl
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app/

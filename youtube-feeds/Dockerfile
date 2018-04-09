@@ -1,7 +1,7 @@
 FROM mhart/alpine-node:6
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache git ca-certificates curl
+    apk add --no-cache git ca-certificates curl python
 RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 RUN chmod 755 /usr/local/bin/youtube-dl
 
